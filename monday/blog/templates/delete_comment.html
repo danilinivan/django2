@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<form class="site-form has-background-light" method="post">
+    {% csrf_token %}
+    <p class="title is-size-4 mb-4">
+        Вы действительно хотите удалить комментарий?
+    </p>
+    <div class="has-text-centered">
+        <button class="button is-success" type="submit">
+            Потвердить
+        </button>
+        <a class="button is-danger" href="{% url 'blog:article_detail' comment.article.slug %}">
+            Отмена
+        </a>
+    </div>
+</form>
+{% endblock %}
